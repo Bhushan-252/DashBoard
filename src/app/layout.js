@@ -2,6 +2,7 @@ import "./globals.css";
 
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { ErrorBoundary } from "react-error-boundary";
+import ErrorHandel from '../components/ErrorHandel'
 import ThemeWrapper from "../components/ThemeWrapper";
 export const metadata = {
   title: "DashBoard",
@@ -12,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <ErrorBoundary fallback={ErrorBoundary}>
+        <ErrorBoundary fallback={ErrorHandel}>
           <AppRouterCacheProvider>
             <ThemeWrapper>{children}</ThemeWrapper>
           </AppRouterCacheProvider>

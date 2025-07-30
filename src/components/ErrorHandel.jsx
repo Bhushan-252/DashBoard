@@ -11,7 +11,7 @@ function ErrorHandel() {
           </p>
           <p className="mt-2 text-gray-500">Please reload or click below</p>
           <div className="mt-6">
-            <Link href="/dashboard/users"> Go Back Home</Link>
+            <Link href="/"> Go Back Home</Link>
           </div>
         </div>
       </div>

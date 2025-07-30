@@ -26,7 +26,7 @@ export default function ErrorSnackbar({ error, reset }) {
           </p>
 
           <div className="mt-6">
-            <Link href="/dashboard/users"> Go Back Home</Link>
+            <Link href="/"> Go Back Home</Link>
           </div>
         </div>
       </div>
