@@ -9,7 +9,7 @@ const NotFoundPage = () => {
         <p className="mt-2 text-gray-500">It might have been moved or deleted.</p>
 
         <div className="mt-6">
-          <Link href="/dashboard/users">              Go Back Home
+          <Link href="/">              Go Back Home
             
           </Link>
         </div>
