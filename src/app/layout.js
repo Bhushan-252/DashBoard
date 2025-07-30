@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <ErrorBoundary fallback={ErrorHandel}>
+        <ErrorBoundary fallback={<ErrorHandel/>}>
           <AppRouterCacheProvider>
             <ThemeWrapper>{children}</ThemeWrapper>
           </AppRouterCacheProvider>

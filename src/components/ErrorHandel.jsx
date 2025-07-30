@@ -1,6 +1,17 @@
+'use client'
 import React from "react";
+import Link from "next/link";
+import { Snackbar,Alert } from "@mui/material";
 
 function ErrorHandel() {
+    const [open, setOpen] = React.useState(true);
+  
+    const handleClose = (event, reason) => {
+      if (reason === "clickaway") {
+        return;
+      }
+      setOpen(false);
+    };
   return (
     <>
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
