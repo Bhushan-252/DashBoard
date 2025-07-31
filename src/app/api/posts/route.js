@@ -1,6 +1,12 @@
-export async function GET() {
+export async function GET(request) {
   try {
-    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+    const { searchParams } = new URL(request.url);
+    const userId = searchParams.get("userId");
+    let url = "https://jsonplaceholder.typicode.com/posts"
+    if(userId) {
+        url = url+ `?userId=${userId}`
+    }
+    const res = await fetch(url);
     const data = await res.json();
 
     return new Response(JSON.stringify(data), {

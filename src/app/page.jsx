@@ -9,6 +9,7 @@ import {
   Box,
   MenuItem,
   CircularProgress,
+  Typography,
 } from "@mui/material";
 
 import OwnCard from "../components/OwnCard";
@@ -77,7 +78,7 @@ function Users() {
     router.push(`posts/${userId}`);
   };
 
-  if (error) throw err;
+  if (error) throw error;
 
   if (!isHydrated)
     return (
@@ -118,9 +119,9 @@ function Users() {
       )}
 
       <div className="mt-4">
-        <div className="text-md ml-4 max-md:text-sm text-gray-400">{`Result... : ${
+        <Typography >{`Result : ${
           filterResults.length === 0 ? "User Not Found" : filterResults.length
-        } `}</div>
+        } `}</Typography>
         {/* {filterResults.length === 0 && <p>User Not Found</p>} */}
         <Grid
           container

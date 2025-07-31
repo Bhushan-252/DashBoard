@@ -115,12 +115,13 @@ function ResponsiveDrawer(props) {
             <MenuIcon />
           </IconButton>
           <IconButton
+            aria-label="Switch Theme"
             onClick={() => handelTheme()}
           >
             {selected ? (
-               <NightlightRound className=" text-gray-400" />
+               <NightlightRound aria-label="Dark Theme" className=" text-gray-400" />
             ) : (
-              <Sunny className="text-white" />
+              <Sunny aria-label="Light Theme" className="text-white" />
              
             )}
           </IconButton>
