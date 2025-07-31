@@ -18,7 +18,7 @@ function ErrorHandel() {
         <div className="text-center p-8 bg-white rounded-lg shadow-lg max-w-md mx-auto">
           <h1 className="text-6xl font-extrabold text-red-500">500</h1>
           <p className="mt-4 text-xl text-gray-700">
-            The something wrong with server
+            The something wrong with server ErrorBoundary
           </p>
           <p className="mt-2 text-gray-500">Please reload or click below</p>
           <div className="mt-6">

@@ -2,7 +2,14 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { TextField, FormControl, Select,Box,MenuItem,CircularProgress } from "@mui/material";
+import {
+  TextField,
+  FormControl,
+  Select,
+  Box,
+  MenuItem,
+  CircularProgress,
+} from "@mui/material";
 
 import OwnCard from "../components/OwnCard";
 import {
@@ -20,6 +27,7 @@ import { Grid } from "@mui/material";
 function Users() {
   const dispatch = useAppDispatch();
   const [isHydrated, setIsHydrated] = useState(false);
+  const [error, setError] = useState();
   const router = useRouter();
   const { users, searchTerm, sortKey, sortOrder } = useAppSelector(
     (state) => state.users
@@ -29,17 +37,19 @@ function Users() {
 
   useEffect(() => {
     if (users.length === 0) {
-      try{
-      fetch("https://jsonplaceholder.typicode.com/users")
+      fetch("/api/users")
         .then((res) => res.json())
         .then((data) => {
+          setIsHydrated(true);
           dispatch(setUsersState(data));
+        })
+        .catch((err) => {
+          console.warn("Fetch erro : " + err);
+          setError(err);
         });
-      }catch(Error){
-          throw new Error();
-      }
+    } else {
+      setIsHydrated(true);
     }
-    setIsHydrated(true);
   }, []);
 
   useEffect(() => {
@@ -67,10 +77,12 @@ function Users() {
     router.push(`posts/${userId}`);
   };
 
+  if (error) throw err;
+
   if (!isHydrated)
     return (
       <>
-        <Box sx={{ display: "flex", justifyContent:"center"}}  >
+        <Box sx={{ display: "flex", justifyContent: "center" }}>
           <CircularProgress />
         </Box>
       </>
